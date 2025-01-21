@@ -4,9 +4,9 @@ const userModel = require('../model/usermodel.js');
 const getAllUsers = (req, res) => {
   userModel.findAll((err, users) => {
     if (err) {
-      return res.status(500).json({ message: 'Error retrieving users' });
+      return res.status(500).send({ message: 'Error retrieving users' });
     }
-    return res.json(users);
+    return res.send(users);
   });
 };
 
@@ -15,9 +15,9 @@ const createUser = (req, res) => {
   const userData = req.body;
   userModel.create(userData, (err, result) => {
     if (err) {
-      return res.status(500).json({ message: 'Error creating user' });
+      return res.status(500).send({ message: 'Error creating user' });
     }
-    return res.status(201).json({ message: 'User created successfully', userId: result.insertId });
+    return res.status(201).send({ message: 'User created successfully', userId: result.insertId });
   });
 };
 
@@ -27,20 +27,22 @@ const updateUser = (req, res) => {
   const userData = req.body;
   userModel.update(userId, userData, (err, result) => {
     if (err) {
-      return res.status(500).json({ message: 'Error updating user' });
+      return res.status(500).send({ message: 'Error updating user' });
     }
-    return res.json({ message: 'User updated successfully' });
+    return res.send({ message: 'User updated successfully' });
   });
 };
 
 // Delete a user
 const deleteUser = (req, res) => {
   const userId = req.params.id;
+  console.log(userId);
+  
   userModel.deleteUser(userId, (err, result) => {
     if (err) {
-      return res.status(500).json({ message: 'Error deleting user' });
+      return res.status(500).send({ message: 'Error deleting user' });
     }
-    return res.json({ message: 'User deleted successfully' });
+    return res.send({ message: 'User deleted successfully' });
   });
 };
 
