@@ -6,9 +6,10 @@ const findAll = () => {
     db.query('SELECT * FROM users', (err, results) => {
       if (err) {
         console.error('Error fetching users:', err.message);
-        return reject(err); 
+        reject(err); 
+      }else{
+        resolve(results); 
       }
-      resolve(results); 
     });
   });
 };
@@ -23,9 +24,10 @@ const create = (userData) => {
     db.query(query, values, (err, results) => {
       if (err) {
         console.error('Error inserting user:', err.message);
-        return reject(err); 
+        reject(err); 
+      }else{
+        resolve(results); 
       }
-      resolve(results); 
     });
   });
 };
@@ -40,9 +42,10 @@ const update = (id, userData) => {
     db.query(query, values, (err, results) => {
       if (err) {
         console.error('Error updating user:', err.message);
-        return reject(err); 
+        reject(err); 
+      }else{
+        resolve(results); 
       }
-      resolve(results); 
     });
   });
 };
@@ -55,9 +58,10 @@ const deleteUser = (id) => {
     db.query(query, [id], (err, results) => {
       if (err) {
         console.error('Error deleting user:', err.message);
-        return reject(err); 
+        reject(err); 
+      }else{
+        resolve(results);
       }
-      resolve(results);
     });
   });
 };
