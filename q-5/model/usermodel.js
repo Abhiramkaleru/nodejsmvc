@@ -1,4 +1,4 @@
-const db = require('../database.js'); // Ensure this is set to your database connection
+const db = require('../database.js');
 
 // Get all users
 const findAll = () => {
@@ -6,9 +6,9 @@ const findAll = () => {
     db.query('SELECT * FROM users', (err, results) => {
       if (err) {
         console.error('Error fetching users:', err.message);
-        return reject(err); // Reject the promise with the error
+        return reject(err); 
       }
-      resolve(results); // Resolve the promise with the results
+      resolve(results); 
     });
   });
 };
@@ -23,9 +23,9 @@ const create = (userData) => {
     db.query(query, values, (err, results) => {
       if (err) {
         console.error('Error inserting user:', err.message);
-        return reject(err); // Reject the promise with the error
+        return reject(err); 
       }
-      resolve(results); // Resolve the promise with the results
+      resolve(results); 
     });
   });
 };
@@ -40,9 +40,9 @@ const update = (id, userData) => {
     db.query(query, values, (err, results) => {
       if (err) {
         console.error('Error updating user:', err.message);
-        return reject(err); // Reject the promise with the error
+        return reject(err); 
       }
-      resolve(results); // Resolve the promise with the results
+      resolve(results); 
     });
   });
 };
@@ -55,9 +55,9 @@ const deleteUser = (id) => {
     db.query(query, [id], (err, results) => {
       if (err) {
         console.error('Error deleting user:', err.message);
-        return reject(err); // Reject the promise with the error
+        return reject(err); 
       }
-      resolve(results); // Resolve the promise with the results
+      resolve(results);
     });
   });
 };
