@@ -1,4 +1,4 @@
-const db = require('../database.js');  // Import the db connection
+const db = require('../database.js'); 
 
 // Get all users
 const findAll = (callback) => {

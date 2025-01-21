@@ -1,15 +1,14 @@
-const express = require('express');
-const userRouter = require('./router/userrouter.js'); // Import user routes
+const express = require("express");
+const userRouter = require("./router/userrouter.js");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
-app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.json()); // parse JSON body
 
-// Use the userRouter for any route starting with /users
-app.use('/users', userRouter);
+app.use("/users", userRouter);
 
-// Start the server
+// server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

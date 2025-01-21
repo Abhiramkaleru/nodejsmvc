@@ -1,4 +1,4 @@
-const userModel = require('../model/usermodel.js'); // Import the user model
+const userModel = require('../model/usermodel.js'); 
 
 // Get all users
 const getAllUsers = (req, res) => {
